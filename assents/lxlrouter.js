@@ -140,16 +140,15 @@
 		}
 	});
 
-	(0, _reactDom.render)(_react2.default.createElement(
-		_reactRouter.Router,
-		null,
-		_react2.default.createElement(
-			_reactRouter.Route,
-			{ path: '/', component: App },
-			_react2.default.createElement(_reactRouter.Route, { path: 'posts', component: Posts }),
-			_react2.default.createElement(_reactRouter.Route, { path: 'about', component: About })
-		)
-	), document.getElementById('content'));
+	var routes = _react2.default.createElement(
+		_reactRouter.Route,
+		{ path: '/', component: App },
+		_react2.default.createElement(_reactRouter.IndexRoute, { component: Posts }),
+		_react2.default.createElement(_reactRouter.Route, { path: 'posts', component: Posts }),
+		_react2.default.createElement(_reactRouter.Route, { path: 'about', component: About })
+	);
+
+	(0, _reactDom.render)(_react2.default.createElement(_reactRouter.Router, { routes: routes, history: _reactRouter.hashHistory }), document.getElementById('content'));
 
 /***/ },
 /* 1 */

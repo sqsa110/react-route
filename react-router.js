@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, Link } from 'react-router';
+import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 
 var App = React.createClass({
 	render : function(){
@@ -46,11 +46,12 @@ var About = React.createClass({
 	}
 })
 
+let routes = <Route path="/" component={App}>
+				<IndexRoute component={Posts} />
+				<Route path="posts" component={Posts} />
+				<Route path="about" component={About} />
+			</Route>;
+
 render((
-	<Router>
-		<Route path="/" component={App}>
-			<Route path="posts" component={Posts} />
-			<Route path="about" component={About} />
-		</Route>
-	</Router>
+	<Router routes={routes} history={hashHistory} />
 ),document.getElementById('content'));
