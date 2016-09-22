@@ -47,7 +47,7 @@ var About = React.createClass({
 })
 
 let routes = <Route path="/" component={App}>
-				<IndexRoute component={Posts} />
+				<IndexRoute component={Posts}/>
 				<Route path="posts" component={Posts} />
 				<Route path="about" component={About} />
 			</Route>;
